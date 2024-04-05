@@ -23,7 +23,6 @@ var listUsersCmd = &cobra.Command{
 	Short: "List all users from the http://localhost:3000/api/v1/users",
 	Long:  `List all users from the http://localhost:3000/api/v1/users`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("listUsers called")
 		url := "http://localhost:3000/api/v1/users"
 
 		response, err := http.Get(url)

@@ -31,7 +31,6 @@ Content-Type: application/json
 		var user models.User
 		user.Name = viper.GetString("name")
 		user.Email = viper.GetString("email")
-		fmt.Printf("Novo usuario:\nNome: %s\nEmail: %s \n", user.Name, user.Email)
 		url := "http://localhost:3000/api/v1/createUser"
 		// Codificando os dados do usuário para o formato JSON
 		dadosJson, err := json.Marshal(user)
@@ -50,7 +49,7 @@ Content-Type: application/json
 
 		// Verificando o status da resposta
 		if resp.StatusCode == http.StatusOK || resp.StatusCode == http.StatusCreated {
-			fmt.Println("Usuário cadastrado com sucesso!")
+			fmt.Printf("Novo usuario:\nNome: %s\nEmail: %s \nCadastrado com sucesso! \n", user.Name, user.Email)
 		} else {
 			fmt.Printf("Erro ao cadastrar usuário. Código de status: %d\n", resp.StatusCode)
 		}
